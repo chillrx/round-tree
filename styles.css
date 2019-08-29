@@ -1,0 +1,93 @@
+#tree {
+	overflow: auto;
+	min-width: 1900px;
+}
+
+#tree ul {
+	padding-top: 47px;
+	position: relative;
+	transition: all 0.5s;
+	padding-inline-start: 0px;
+}
+
+#tree ul ul::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 50%;
+	border-left: 1px solid rgba(19, 28, 44, 0.15);
+	width: 0;
+	height: 47px;
+}
+
+#tree li {
+	float: left;
+	text-align: center;
+	list-style-type: none;
+	position: relative;
+	padding: 47px 22.5px 0 22.5px;
+	transition: all 0.5s;
+}
+
+#tree li::before,
+#tree li::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 50%;
+	border-top: 1px solid rgba(19, 28, 44, 0.15);
+	width: 50%;
+	height: 47px;
+}
+
+#tree li::after {
+	right: auto;
+	left: 50%;
+	border-left: 1px solid rgba(19, 28, 44, 0.15);
+}
+
+#tree li:only-child::after,
+#tree li:only-child::before {
+	display: none;
+}
+
+#tree li:only-child {
+	padding-top: 0;
+}
+
+#tree li:first-child::before,
+#tree li:last-child::after {
+	border: 0 none;
+}
+
+#tree li:last-child::before {
+	border-right: 1px solid rgba(19, 28, 44, 0.15);
+	border-radius: 0 0 0 0;
+}
+#tree li:first-child::after {
+	border-radius: 0 0 0 0;
+}
+
+#tree li div {
+	width: 55px;
+	height: 55px;
+	background: #ffd700;
+	border-radius: 50%;
+	display: inline-block;
+	transition: all 0.5s;
+	box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+#tree li div:hover,
+#tree li div:hover + ul li div {
+	background: #c8e4f8;
+	color: #000;
+	border: 1px solid #94a0b4;
+}
+
+#tree li div:hover + ul li::after,
+#tree li div:hover + ul li::before,
+#tree li div:hover + ul::before,
+#tree li div:hover + ul ul::before {
+	border-color: #94a0b4;
+}
